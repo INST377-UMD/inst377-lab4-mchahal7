@@ -1,8 +1,12 @@
 <html>
     <head>
         <title>Lab 4</title>
-        <link rel="stylesheet" href="lab4.css">
     </head>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+    </style>
     <body>
         <h1 id="main-heading">INST 377 - Lab 4</h1>
 
@@ -11,8 +15,60 @@
             <h2>Alert Me!</h2>
             <form id="alertForm">
                 <input type="text" id="nameInput" placeholder="Enter your name" required>
-
+                <button type="button" onclick="alertMe()">Alert Me!</button>
             </form>
          </div>
+
+        <!-- Change Color Section -->
+         <div class="section">
+            <button onclick="changeColor()">Change Color</button>
+         </div>
+
+        <!-- Text Tester Section -->
+         <div class="section">
+            <form id="textTesterForm">
+                <input type="text" id="textInput" placeholder="Enter text" required>
+                <button type="button" onclick="validateText()">Validate Text</button>
+            </form>
+         </div>
+        
+        <!-- Add Text Section -->
+         <div class="section">
+            <button type="button" onclick="addText()">Add Text</button>
+         </div>
+
+         <!-- Javascript Section-->
+          <script>
+            // Alert Me
+            function alertMe() {
+                let name = document.getElementById("nameInput").value;
+                if(name) {
+                    alert("Hi " + name + "!");
+                }
+            }
+            // Change Color
+            let isantiquewhite = true;
+            function changeColor() {
+                if (isantiquewhite) {
+                    document.body.style.backgroundColor = "cadetblue";
+                } else {
+                    document.body.style.backgroundColor = "antiquewhite";
+                }
+                isantiquewhite = !isantiquewhite;
+            }
+            // Validate Text
+            function validateText() {
+                let text = document.getElementById("textInput").value;
+                let validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validation.test(text)){
+                    alert("Special characters are not allowed!");
+                } else {
+                    alert("Text is valid!");
+                }
+            }
+            // Add Text
+
+
+          </script>
     </body>
 </html>
